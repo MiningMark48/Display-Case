@@ -61,7 +61,7 @@ public class BlockDisplayCase extends BlockDisplayCaseBase {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
         if (player != null) {
             if (!player.isSneaking()) {
-                player.openGui(Reference.MOD_ID, GuiHandler.gui_id_dc_single_slot, world, pos.getX(), pos.getY(), pos.getZ());
+                player.openGui(Reference.MOD_ID, GuiHandler.gui_id_dc, world, pos.getX(), pos.getY(), pos.getZ());
                 return true;
             }
             return false;

@@ -3,17 +3,15 @@ package com.miningmark48.displaycase.block;
 import com.miningmark48.displaycase.block.base.BlockDisplayCaseBase;
 import com.miningmark48.displaycase.handler.GuiHandler;
 import com.miningmark48.displaycase.reference.Reference;
-import com.miningmark48.displaycase.tile.TileEntityArmorFrame;
+import com.miningmark48.displaycase.tile.TileEntityToolRack;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -27,7 +25,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockArmorFrame extends BlockDisplayCaseBase {
+public class BlockToolRack extends BlockDisplayCaseBase {
 
     private static AxisAlignedBB BOUNDING_BOX_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.890625D, 1D, 1D, 1D);
     private static AxisAlignedBB BOUNDING_BOX_EAST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.109375D, 1D, 1D);
@@ -35,32 +33,22 @@ public class BlockArmorFrame extends BlockDisplayCaseBase {
     private static AxisAlignedBB BOUNDING_BOX_WEST = new AxisAlignedBB(0.890625D, 0.0D, 0.0D, 1D, 1D, 1D);
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
-    public static final PropertyInteger COLOR = PropertyInteger.create("color", 0, 15);
 
-    public BlockArmorFrame() {
+    public BlockToolRack() {
         super();
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(COLOR, 0));
-    }
-
-    @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        int color = ((TileEntityArmorFrame) worldIn.getTileEntity(pos)).getColor();
-        state = state.withProperty(COLOR, color);
-
-        return state;
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     @Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         IBlockState state = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
-        state = state.withProperty(COLOR, 0);
         return state;
     }
 
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, FACING, COLOR);
+        return new BlockStateContainer(this, FACING);
     }
 
     @Override
@@ -100,14 +88,14 @@ public class BlockArmorFrame extends BlockDisplayCaseBase {
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityArmorFrame();
+        return new TileEntityToolRack();
     }
 
     //Custom Tooltip
     @Override
     public void addInformation(ItemStack par1ItemStack, @Nullable World world, List par3List, ITooltipFlag par4) {
-        par3List.add(TextFormatting.LIGHT_PURPLE + ModTranslate.toLocal("tooltip.block.armor_frame.line1"));
-        par3List.add(TextFormatting.YELLOW + ModTranslate.toLocal("gui.display_case.info.armor.line1"));
+        par3List.add(TextFormatting.LIGHT_PURPLE + ModTranslate.toLocal("tooltip.block.tool_rack.line1"));
+        par3List.add(TextFormatting.YELLOW + ModTranslate.toLocal("gui.display_case.info.tool.line1"));
     }
 
     @SuppressWarnings("Duplicates")
@@ -115,26 +103,9 @@ public class BlockArmorFrame extends BlockDisplayCaseBase {
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
         if (player != null) {
             if (!player.isSneaking()) {
-
-                ItemStack heldItem = player.getHeldItem(hand);
-                TileEntity te = world.getTileEntity(pos);
-                if (te instanceof TileEntityArmorFrame) {
-                    TileEntityArmorFrame teAF = (TileEntityArmorFrame) te;
-                    if (!heldItem.isEmpty()) {
-                        if (heldItem.getItem() instanceof ItemDye) {
-                            teAF.setColor(heldItem.getItemDamage());
-                            heldItem.shrink(1);
-                            teAF.markDirty();
-                            world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
-                        }
-                    } else {
-                        player.openGui(Reference.MOD_ID, GuiHandler.gui_id_dc_armor, world, pos.getX(), pos.getY(), pos.getZ());
-                    }
-                }
-
+                    player.openGui(Reference.MOD_ID, GuiHandler.gui_id_dc_tool, world, pos.getX(), pos.getY(), pos.getZ());
                 return true;
             }
-            return false;
         }
         return false;
     }

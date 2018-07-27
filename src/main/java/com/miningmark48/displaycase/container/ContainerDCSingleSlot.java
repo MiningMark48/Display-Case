@@ -12,21 +12,21 @@ import java.util.Objects;
 
 public class ContainerDCSingleSlot extends Container {
 
-    private TileEntityDisplayCaseBase te;
-    private static int INV_START = TileEntityDisplayCaseBase.INV_SIZE, INV_END = INV_START + 26, HOTBAR_START = INV_END + 1, HOTBAR_END = HOTBAR_START + 8;
+    private IInventory tileInv;
 
-    public ContainerDCSingleSlot(final IInventory playerInv, TileEntityDisplayCaseBase te, SlotType slotType){
-        this.te = te;
+    public ContainerDCSingleSlot(final IInventory playerInv, IInventory tileInv, SlotType slotType){
+        this.tileInv = tileInv;
+        tileInv.openInventory(null);
 
-        if (te.getSizeInventory() == 1) {
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 80, 31)));
-        } else if (te.getSizeInventory() == 2) {
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 53, 31)));
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 1, 107, 31)));
-        } else if (te.getSizeInventory() == 3) {
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 53, 31)));
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 1, 80, 31)));
-            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 2, 107, 31)));
+        if (tileInv.getSizeInventory() == 1) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 0, 80, 31)));
+        } else if (tileInv.getSizeInventory() == 2) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 0, 53, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 1, 107, 31)));
+        } else if (tileInv.getSizeInventory() == 3) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 0, 53, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 1, 80, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(tileInv, 2, 107, 31)));
         }
 
         //Player Inventory
@@ -45,45 +45,42 @@ public class ContainerDCSingleSlot extends Container {
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
-        return te.isUsableByPlayer(playerIn);
+        return tileInv.isUsableByPlayer(playerIn);
     }
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index){
-        ItemStack stack = ItemStack.EMPTY;
+        ItemStack itemCopy = ItemStack.EMPTY;
         Slot slot = (Slot) this.inventorySlots.get(index);
 
-        if (slot != null && slot.getHasStack()){
-            ItemStack itemstack1 = slot.getStack();
-            stack = itemstack1.copy();
+        if (slot != null && slot.getHasStack())
+        {
+            ItemStack item = slot.getStack();
+            itemCopy = item.copy();
 
-            if (index < INV_START){
-                if (!this.mergeItemStack(itemstack1, INV_START, HOTBAR_END + 1, true)){
-                    return ItemStack.EMPTY;
-                }
-
-                slot.onSlotChange(itemstack1, stack);
-            } else {
-                if(!this.mergeItemStack(itemstack1, 0, INV_START, false)){
+            if (index < 15)
+            {
+                if (!this.mergeItemStack(item, 15, this.inventorySlots.size(), true))
+                {
                     return ItemStack.EMPTY;
                 }
             }
-
-            if (itemstack1.getCount() == 0){
-                slot.putStack(ItemStack.EMPTY);
-            } else {
-                slot.onSlotChanged();
-            }
-
-            if (itemstack1.getCount() == stack.getCount()){
+            else if (!this.mergeItemStack(item, 0, 15, false))
+            {
                 return ItemStack.EMPTY;
             }
 
-            slot.onTake(player, itemstack1);
-
+            if (item.getCount() == 0)
+            {
+                slot.putStack(ItemStack.EMPTY);
+            }
+            else
+            {
+                slot.onSlotChanged();
+            }
         }
 
-        return stack;
+        return itemCopy;
 
     }
 

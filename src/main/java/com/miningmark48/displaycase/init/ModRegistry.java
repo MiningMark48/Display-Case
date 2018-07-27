@@ -29,6 +29,7 @@ public class ModRegistry {
     private static void registerBlocks(){
         registerBlock(ModBlocks.display_case);
         registerBlock(ModBlocks.armor_frame);
+        registerBlock(ModBlocks.tool_rack);
     }
 
     public static void registerRenderItems(){
@@ -38,6 +39,7 @@ public class ModRegistry {
     public static void registerRenderBlocks(){
         registerBlockRender(ModBlocks.display_case);
         registerBlockRender(ModBlocks.armor_frame);
+        registerBlockRender(ModBlocks.tool_rack);
     }
 
     //Registry

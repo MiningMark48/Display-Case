@@ -12,12 +12,12 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
 
-    public static int gui_id_dc_single_slot = 0;
-    public static int gui_id_dc_single_slot_armor = 1;
-    public static int gui_id_dc_single_slot_item = 2;
-    public static int gui_id_dc_single_slot_block = 3;
-    public static int gui_id_dc_single_slot_tool = 4;
-    public static int gui_id_dc_single_slot_weapon = 5;
+    public static int gui_id_dc = 0;
+    public static int gui_id_dc_armor = 1;
+    public static int gui_id_dc_item = 2;
+    public static int gui_id_dc_block = 3;
+    public static int gui_id_dc_tool = 4;
+    public static int gui_id_dc_weapon = 5;
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -25,17 +25,17 @@ public class GuiHandler implements IGuiHandler {
         TileEntity te = world.getTileEntity(pos);
 
 
-        if (ID == gui_id_dc_single_slot){
+        if (ID == gui_id_dc){
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ALL);
-        } else if (ID == gui_id_dc_single_slot_armor) {
+        } else if (ID == gui_id_dc_armor) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ARMOR);
-        } else if (ID == gui_id_dc_single_slot_item) {
+        } else if (ID == gui_id_dc_item) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ITEM);
-        } else if (ID == gui_id_dc_single_slot_block) {
+        } else if (ID == gui_id_dc_block) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.BLOCK);
-        } else if (ID == gui_id_dc_single_slot_tool) {
+        } else if (ID == gui_id_dc_tool) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.TOOL);
-        } else if (ID == gui_id_dc_single_slot_weapon) {
+        } else if (ID == gui_id_dc_weapon) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.WEAPON);
         }
 
@@ -47,17 +47,17 @@ public class GuiHandler implements IGuiHandler {
         BlockPos pos = new BlockPos(x, y, z);
         TileEntity te = world.getTileEntity(pos);
 
-        if (ID == gui_id_dc_single_slot){
+        if (ID == gui_id_dc){
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ALL);
-        } else if (ID == gui_id_dc_single_slot_armor) {
+        } else if (ID == gui_id_dc_armor) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ARMOR);
-        } else if (ID == gui_id_dc_single_slot_item) {
+        } else if (ID == gui_id_dc_item) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ITEM);
-        } else if (ID == gui_id_dc_single_slot_block) {
+        } else if (ID == gui_id_dc_block) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.BLOCK);
-        } else if (ID == gui_id_dc_single_slot_tool) {
+        } else if (ID == gui_id_dc_tool) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.TOOL);
-        } else if (ID == gui_id_dc_single_slot_weapon) {
+        } else if (ID == gui_id_dc_weapon) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.WEAPON);
         }
 

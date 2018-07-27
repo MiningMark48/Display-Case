@@ -24,10 +24,10 @@ public class GuiDCSingleSlot extends GuiContainer {
 
     private IInventory playerInv;
     private EntityPlayer player;
-    private TileEntityDisplayCaseBase te;
+    private IInventory te;
     private SlotType slotType;
 
-    public GuiDCSingleSlot(IInventory playerInv, TileEntityDisplayCaseBase te, EntityPlayer player, SlotType slotType) {
+    public GuiDCSingleSlot(IInventory playerInv, IInventory te, EntityPlayer player, SlotType slotType) {
         super(new ContainerDCSingleSlot(playerInv, te, slotType));
 
         this.xSize = 176;
