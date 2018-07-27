@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public abstract class TileEntityDisplayCaseBase extends TileEntity implements IInventory {
 
-    public static int INV_SIZE;
+    public static int INV_SIZE = 1;
 
     private NonNullList<ItemStack> inventory = NonNullList.withSize(INV_SIZE, ItemStack.EMPTY);
 
@@ -95,7 +95,7 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
             stack = ItemStack.EMPTY;
         }
 
-        if (this.getSizeInventory() > 0) this.inventory.set(index, stack);
+        this.inventory.set(index, stack);
         this.markDirty();
     }
 
