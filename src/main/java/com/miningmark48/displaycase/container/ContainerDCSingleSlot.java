@@ -1,5 +1,6 @@
 package com.miningmark48.displaycase.container;
 
+import com.miningmark48.displaycase.container.slot.SlotType;
 import com.miningmark48.displaycase.tile.base.TileEntityDisplayCaseBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -7,16 +8,17 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import java.util.Objects;
+
 public class ContainerDCSingleSlot extends Container {
 
     private TileEntityDisplayCaseBase te;
     private static int INV_START = TileEntityDisplayCaseBase.INV_SIZE, INV_END = INV_START + 26, HOTBAR_START = INV_END + 1, HOTBAR_END = HOTBAR_START + 8;
 
-    public ContainerDCSingleSlot(final IInventory playerInv, TileEntityDisplayCaseBase te){
+    public ContainerDCSingleSlot(final IInventory playerInv, TileEntityDisplayCaseBase te, SlotType slotType){
         this.te = te;
 
-        //Tile Entity
-        this.addSlotToContainer(new Slot(te, 0, 7, 7));
+        this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 7, 7)));
 
         //Player Inventory
         for (int i = 0; i < 3; i++) {
@@ -31,8 +33,6 @@ public class ContainerDCSingleSlot extends Container {
         }
 
     }
-
-
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {

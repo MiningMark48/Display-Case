@@ -96,7 +96,7 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
             stack = ItemStack.EMPTY;
         }
 
-        this.inventory.set(index, stack);
+        if (this.inventory.size() > 0) this.inventory.set(index, stack);
         this.markDirty();
     }
 

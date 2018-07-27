@@ -108,7 +108,8 @@ public class BlockArmorFrame extends BlockDisplayCaseBase {
     //Custom Tooltip
     @Override
     public void addInformation(ItemStack par1ItemStack, @Nullable World world, List par3List, ITooltipFlag par4) {
-        par3List.add(TextFormatting.AQUA + ModTranslate.toLocal("tooltip.block.armor_frame.line1"));
+        par3List.add(TextFormatting.LIGHT_PURPLE + ModTranslate.toLocal("tooltip.block.armor_frame.line1"));
+        par3List.add(TextFormatting.YELLOW + ModTranslate.toLocal("gui.display_case.info.armor.line1"));
     }
 
     @SuppressWarnings("Duplicates")

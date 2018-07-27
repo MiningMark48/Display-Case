@@ -8,5 +8,10 @@ tile.armor_frame.name=Armor Frame
 tooltip.block.armor_frame.line1=Show off all your fancy armor!
 
 #Gui
-gui.display_case.armor.info.title=Info
-gui.display_case.armor.info.line1=Will display armor only.
+gui.display_case.info.title=Info
+gui.display_case.info.all.line1=All items can be displayed.
+gui.display_case.info.armor.line1=Only armor can be displayed.
+gui.display_case.info.item.line1=Only items can be displayed.
+gui.display_case.info.block.line1=Only blocks can be displayed.
+gui.display_case.info.tool.line1=Only tools can be displayed.
+gui.display_case.info.weapon.line1=Only weapons can be displayed.
