@@ -1,0 +1,12 @@
+#Creative Tabs
+itemGroup.displaycase=Display Case
+
+#Blocks
+tile.armor_frame.name=Armor Frame
+
+#Tooltips
+tooltip.block.armor_frame.line1=Show off all your fancy armor!
+
+#Gui
+gui.display_case.armor.info.title=Info
+gui.display_case.armor.info.line1=Will display armor only.
