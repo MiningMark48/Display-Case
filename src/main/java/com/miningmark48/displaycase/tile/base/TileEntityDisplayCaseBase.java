@@ -24,7 +24,6 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
         INV_SIZE = inventory_size;
     }
 
-
     @Override
     public int getSizeInventory() {
         return INV_SIZE;
@@ -45,7 +44,7 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
 
     @Override
     public ItemStack getStackInSlot(int index) {
-        if (index < 0 || index >= this.getSizeInventory()){
+        if (this.getSizeInventory() <= 0 || index < 0 || index >= this.getSizeInventory()){
             return ItemStack.EMPTY;
         }
         return inventory.get(index);
@@ -70,7 +69,7 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
                 this.markDirty();
                 return itemStack;
             }
-        }else {
+        } else {
             return ItemStack.EMPTY;
         }
     }
@@ -96,7 +95,7 @@ public abstract class TileEntityDisplayCaseBase extends TileEntity implements II
             stack = ItemStack.EMPTY;
         }
 
-        if (this.inventory.size() > 0) this.inventory.set(index, stack);
+        if (this.getSizeInventory() > 0) this.inventory.set(index, stack);
         this.markDirty();
     }
 

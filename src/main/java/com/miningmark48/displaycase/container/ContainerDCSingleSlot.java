@@ -18,18 +18,27 @@ public class ContainerDCSingleSlot extends Container {
     public ContainerDCSingleSlot(final IInventory playerInv, TileEntityDisplayCaseBase te, SlotType slotType){
         this.te = te;
 
-        this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 7, 7)));
+        if (te.getSizeInventory() == 1) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 80, 31)));
+        } else if (te.getSizeInventory() == 2) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 53, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 1, 107, 31)));
+        } else if (te.getSizeInventory() == 3) {
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 0, 53, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 1, 80, 31)));
+            this.addSlotToContainer(Objects.requireNonNull(slotType.getSlot(te, 2, 107, 31)));
+        }
 
         //Player Inventory
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                this.addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 31 + i * 18));
+                this.addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 62 + i * 18));
             }
         }
 
         //Hotbar
         for (int i = 0; i < 9; i++) {
-            this.addSlotToContainer(new Slot(playerInv, i, 8 + i * 18, 89));
+            this.addSlotToContainer(new Slot(playerInv, i, 8 + i * 18, 120));
         }
 
     }

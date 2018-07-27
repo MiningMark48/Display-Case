@@ -18,6 +18,7 @@ import org.lwjgl.opengl.GL11;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GuiDCSingleSlot extends GuiContainer {
 
@@ -30,7 +31,7 @@ public class GuiDCSingleSlot extends GuiContainer {
         super(new ContainerDCSingleSlot(playerInv, te, slotType));
 
         this.xSize = 176;
-        this.ySize = 113;
+        this.ySize = 144;
 
         this.playerInv = playerInv;
         this.player = player;
@@ -49,6 +50,17 @@ public class GuiDCSingleSlot extends GuiContainer {
         GL11.glColor4f(1F, 1F, 1F, 1F);
         this.mc.getTextureManager().bindTexture(TextureReference.SINGLE_SLOT_RESOURCE);
         this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+
+        if (te.getSizeInventory() == 1) {
+            this.drawTexturedModalRect(getGuiLeft() + 79, getGuiTop() + 30, 177, 18, 18, 18);
+        } else if (te.getSizeInventory() == 2) {
+            this.drawTexturedModalRect(getGuiLeft() + 52, getGuiTop() + 30, 177, 18, 18, 18);
+            this.drawTexturedModalRect(getGuiLeft() + 106, getGuiTop() + 30, 177, 18, 18, 18);
+        } else if (te.getSizeInventory() == 3) {
+            this.drawTexturedModalRect(getGuiLeft() + 52, getGuiTop() + 30, 177, 18, 18, 18);
+            this.drawTexturedModalRect(getGuiLeft() + 79, getGuiTop() + 30, 177, 18, 18, 18);
+            this.drawTexturedModalRect(getGuiLeft() + 106, getGuiTop() + 30, 177, 18, 18, 18);
+        }
 
         this.drawTexturedModalRect(getGuiLeft() + 150, getGuiTop() + 6, 177, 1, 15, 15);
     }
