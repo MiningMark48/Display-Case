@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.GlStateManager;
 public class TESRDisplayCase extends TESRDisplayCaseBase {
 
     @Override
-    public void doItemRender() {
+    public void doItemRender(int index) {
         GlStateManager.rotate(180f,0, 0, 1);
         GlStateManager.rotate(90f,1, 0, 0);
 
@@ -16,11 +16,11 @@ public class TESRDisplayCase extends TESRDisplayCaseBase {
 
         GlStateManager.translate(xOffset, yOffset, zOffset);
 
-        super.doItemRender();
+        super.doItemRender(index);
     }
 
     @Override
-    public void doItemBlockRender() {
+    public void doItemBlockRender(int index) {
         GlStateManager.scale(0.5D, 0.5D, 0.5D);
 
         double xOffset = 0.0D;
@@ -29,6 +29,6 @@ public class TESRDisplayCase extends TESRDisplayCaseBase {
 
         GlStateManager.translate(xOffset, yOffset, zOffset);
 
-        super.doItemBlockRender();
+        super.doItemBlockRender(index);
     }
 }

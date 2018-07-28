@@ -7,7 +7,7 @@ public class TESRArmorFrame extends TESRDisplayCaseBase {
 
     @SuppressWarnings("Duplicates")
     @Override
-    public void doItemRender() {
+    public void doItemRender(int index) {
 
         GlStateManager.scale(1.65D, 1.65D, 1.65D);
 
@@ -17,10 +17,7 @@ public class TESRArmorFrame extends TESRDisplayCaseBase {
 
         GlStateManager.translate(xOffset, yOffset, zOffset);
 
-        super.doItemRender();
+        super.doItemRender(index);
     }
 
-    @Override
-    public void doItemBlockRender() {
-    }
 }

@@ -3,9 +3,11 @@ itemGroup.displaycase=Display Case
 
 #Blocks
 tile.armor_frame.name=Armor Frame
+tile.tool_rack.name=Tool Rack
 
 #Tooltips
 tooltip.block.armor_frame.line1=Show off all your fancy armor!
+tooltip.block.tool_rack.line1=Put your tools up for safe keeping.
 
 #Gui
 gui.display_case.info.title=Info
