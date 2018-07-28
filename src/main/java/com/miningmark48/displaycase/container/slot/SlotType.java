@@ -10,13 +10,14 @@ public enum SlotType {
     ALL (Slot.class),
     ARMOR (SlotArmor.class),
     BLOCK (SlotBlock.class),
+    FISHING_ROD (SlotFishingRod.class),
     ITEM (SlotItem.class),
     TOOL (SlotTool.class),
     WEAPON (SlotWeapon.class);
 
     private Class<? extends Slot> slotClass;
 
-    private <T extends Slot> SlotType(Class<T> slot) {
+    <T extends Slot> SlotType(Class<T> slot) {
         this.slotClass = slot;
     }
 
