@@ -18,12 +18,14 @@ public class GuiHandler implements IGuiHandler {
     public static int gui_id_dc_block = 3;
     public static int gui_id_dc_tool = 4;
     public static int gui_id_dc_weapon = 5;
+    public static int gui_id_dc_fishing_rod = 6;
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         BlockPos pos = new BlockPos(x, y, z);
         TileEntity te = world.getTileEntity(pos);
 
+        assert te != null;
 
         if (ID == gui_id_dc){
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ALL);
@@ -37,6 +39,8 @@ public class GuiHandler implements IGuiHandler {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.TOOL);
         } else if (ID == gui_id_dc_weapon) {
             return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.WEAPON);
+        } else if (ID == gui_id_dc_fishing_rod) {
+            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.FISHING_ROD);
         }
 
         return null;
@@ -59,6 +63,8 @@ public class GuiHandler implements IGuiHandler {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.TOOL);
         } else if (ID == gui_id_dc_weapon) {
             return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.WEAPON);
+        } else if (ID == gui_id_dc_fishing_rod) {
+            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.FISHING_ROD);
         }
 
         return null;
