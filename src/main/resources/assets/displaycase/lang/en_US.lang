@@ -17,3 +17,4 @@ gui.display_case.info.item.line1=Only items can be displayed.
 gui.display_case.info.block.line1=Only blocks can be displayed.
 gui.display_case.info.tool.line1=Only tools can be displayed.
 gui.display_case.info.weapon.line1=Only weapons can be displayed.
+gui.display_case.info.fishing_rod.line1=Only fishing rods can be displayed.

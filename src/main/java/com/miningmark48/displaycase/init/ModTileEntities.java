@@ -11,12 +11,14 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityDisplayCase.class, "display_case");
         GameRegistry.registerTileEntity(TileEntityArmorFrame.class, "armor_frame");
         GameRegistry.registerTileEntity(TileEntityToolRack.class, "tool_rack");
+        GameRegistry.registerTileEntity(TileEntityFishingRodHolder.class, "fishing_rod_holder");
     }
 
     public static void bindTileRenders() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisplayCase.class, new TESRDisplayCase());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityArmorFrame.class, new TESRArmorFrame());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityToolRack.class, new TESRToolRack());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFishingRodHolder.class, new TESRFishingRodHolder());
     }
 
 }

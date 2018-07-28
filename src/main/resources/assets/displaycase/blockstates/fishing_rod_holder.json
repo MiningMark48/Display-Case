@@ -1,0 +1,16 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"custom": {
+			"flip-v": true
+		},
+		"variants": {
+			"facing=up": { "model": "displaycase:fishing_rod_holder.obj" },
+			"facing=down": { "model": "displaycase:fishing_rod_holder.obj" },
+			"facing=north": { "model": "displaycase:fishing_rod_holder.obj" },
+			"facing=south": { "model": "displaycase:fishing_rod_holder.obj", "y": 180 },
+			"facing=west":  { "model": "displaycase:fishing_rod_holder.obj", "y": 270 },
+			"facing=east":  { "model": "displaycase:fishing_rod_holder.obj", "y": 90 }
+		}
+	}
+}

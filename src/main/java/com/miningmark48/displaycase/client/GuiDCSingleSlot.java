@@ -107,6 +107,9 @@ public class GuiDCSingleSlot extends GuiContainer {
                 case BLOCK:
                     text.add(ModTranslate.toLocal("gui.display_case.info.block.line1"));
                     break;
+                case FISHING_ROD:
+                    text.add(ModTranslate.toLocal("gui.display_case.info.fishing_rod.line1"));
+                    break;
                 case ITEM:
                     text.add(ModTranslate.toLocal("gui.display_case.info.item.line1"));
                     break;
