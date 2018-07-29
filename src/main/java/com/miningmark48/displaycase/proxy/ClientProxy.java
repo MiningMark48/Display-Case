@@ -35,11 +35,13 @@ public class ClientProxy extends CommonProxy {
         ModTileEntities.bindTileRenders();
     }
 
+    @Override
+    public void registerModel(Item item) {
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
+    }
+
     private void registerOBJRenders() {
-        ModLogger.info("MODEL LOADER " + Reference.MOD_ID + ":" + ModBlocks.fishing_rod_holder.getUnlocalizedName().substring(5));
-        ModLogger.info(new ModelResourceLocation(Reference.MOD_ID + ":" + ModBlocks.fishing_rod_holder.getUnlocalizedName().substring(5), "inventory").toString());
-        Item item = ItemBlock.getItemFromBlock(ModBlocks.fishing_rod_holder);
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModBlocks.fishing_rod_holder.getUnlocalizedName().substring(5), "inventory"));
+        this.registerModel(ItemBlock.getItemFromBlock(ModBlocks.fishing_rod_holder));
     }
 
 }
