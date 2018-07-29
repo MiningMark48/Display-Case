@@ -4,10 +4,12 @@ itemGroup.displaycase=Display Case
 #Blocks
 tile.armor_frame.name=Armor Frame
 tile.tool_rack.name=Tool Rack
+tile.fishing_rod_holder.name=Fishing Rod Holder
 
 #Tooltips
 tooltip.block.armor_frame.line1=Show off all your fancy armor!
 tooltip.block.tool_rack.line1=Put your tools up for safe keeping.
+tooltip.block.fishing_rod_holder.line1=Line tangling prevention.
 
 #Gui
 gui.display_case.info.title=Info
