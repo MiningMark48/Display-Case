@@ -1,12 +1,14 @@
 package com.miningmark48.displaycase.tile.base;
 
 import com.miningmark48.displaycase.block.base.BlockDisplayCaseBase;
+import com.miningmark48.displaycase.tile.TileEntityDisplayCase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 
 public abstract class TESRDisplayCaseBase extends TileEntitySpecialRenderer<TileEntityDisplayCaseBase> {
@@ -18,7 +20,7 @@ public abstract class TESRDisplayCaseBase extends TileEntitySpecialRenderer<Tile
         if (te != null){
             for (int i = 1; i <= getSlotAmount(); i++) {
                 int index = i - 1;
-                ItemStack stack = te.getStackInSlot(index).copy();
+                ItemStack stack = getItemToRender(te, index);
                 if (!stack.isEmpty()) {
                     stack.setCount(1);
                     entityItem.setItem(stack);
@@ -45,6 +47,10 @@ public abstract class TESRDisplayCaseBase extends TileEntitySpecialRenderer<Tile
             }
 
         }
+    }
+
+    public ItemStack getItemToRender(TileEntityDisplayCaseBase te, int index) {
+        return te.getStackInSlot(index).copy();
     }
 
     public void doItemRender(int index) {

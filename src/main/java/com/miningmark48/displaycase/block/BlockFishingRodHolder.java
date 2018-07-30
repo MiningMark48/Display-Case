@@ -29,10 +29,10 @@ import java.util.List;
 @SuppressWarnings("Duplicates")
 public class BlockFishingRodHolder extends BlockDisplayCaseBase {
 
-    private static AxisAlignedBB BOUNDING_BOX_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1D, 1D, 1D);
-    private static AxisAlignedBB BOUNDING_BOX_EAST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1D, 1D, 1D);
-    private static AxisAlignedBB BOUNDING_BOX_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1D, 1D, 1D);
-    private static AxisAlignedBB BOUNDING_BOX_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1D, 1D, 1D);
+    private static AxisAlignedBB BOUNDING_BOX_NORTH = new AxisAlignedBB(0.125D, 0.0D, 0.6875D, 0.875D, 0.9375D, 1D);
+    private static AxisAlignedBB BOUNDING_BOX_EAST = new AxisAlignedBB(0.0D, 0.0D, 0.125D, 0.3125D, 0.9375D, 0.875D);
+    private static AxisAlignedBB BOUNDING_BOX_SOUTH = new AxisAlignedBB(0.125D, 0.0D, 0.0D, 0.875D, 0.9375D, 0.3125D);
+    private static AxisAlignedBB BOUNDING_BOX_WEST = new AxisAlignedBB(0.6875D, 0.0D, 0.125D, 1D, 0.9375D, 0.875D);
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 

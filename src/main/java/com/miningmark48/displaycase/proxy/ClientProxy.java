@@ -41,7 +41,6 @@ public class ClientProxy extends CommonProxy {
     }
 
     private void registerOBJRenders() {
-        this.registerModel(ItemBlock.getItemFromBlock(ModBlocks.fishing_rod_holder));
     }
 
 }

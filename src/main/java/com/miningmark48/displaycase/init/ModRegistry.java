@@ -23,7 +23,8 @@ public class ModRegistry {
     }
 
     private static void registerItems(){
-
+        //Fake Items
+        registerItem(ModItems.fake_fishing_rod);
     }
 
     private static void registerBlocks(){
@@ -34,7 +35,8 @@ public class ModRegistry {
     }
 
     public static void registerRenderItems(){
-
+        //Fake Items
+        registerItemRender(ModItems.fake_fishing_rod);
     }
 
     public static void registerRenderBlocks(){
