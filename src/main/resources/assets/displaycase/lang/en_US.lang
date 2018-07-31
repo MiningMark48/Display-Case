@@ -5,12 +5,14 @@ itemGroup.displaycase=Display Case
 tile.armor_frame.name=Armor Frame
 tile.tool_rack.name=Tool Rack
 tile.fishing_rod_holder.name=Fishing Rod Holder
+tile.wood_shelf.name=Shelf
 
 #Tooltips
 tooltip.info.fake_item.line1=You shouldn't have this item! Report to mod author.
 tooltip.block.armor_frame.line1=Show off all your fancy armor!
 tooltip.block.tool_rack.line1=Put your tools up for safe keeping.
 tooltip.block.fishing_rod_holder.line1=Line tangling prevention.
+tooltip.block.wood_shelf.line1=The simple way to show your items.
 
 #Gui
 gui.display_case.info.title=Info

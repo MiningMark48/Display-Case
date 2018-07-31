@@ -1,0 +1,10 @@
+{
+  "variants": {
+  	"facing=up": { "model": "displaycase:wood_shelf" },
+    "facing=down": { "model": "displaycase:wood_shelf" },
+    "facing=north": { "model": "displaycase:wood_shelf" },
+    "facing=south": { "model": "displaycase:wood_shelf", "y": 180 },
+    "facing=west":  { "model": "displaycase:wood_shelf", "y": 270 },
+    "facing=east":  { "model": "displaycase:wood_shelf", "y": 90 }
+  }
+}
