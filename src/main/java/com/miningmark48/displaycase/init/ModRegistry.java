@@ -33,6 +33,7 @@ public class ModRegistry {
         registerBlock(ModBlocks.tool_rack);
         registerBlock(ModBlocks.fishing_rod_holder);
         registerBlock(ModBlocks.wood_shelf);
+        registerBlock(ModBlocks.bookshelf);
     }
 
     public static void registerRenderItems(){
@@ -46,6 +47,7 @@ public class ModRegistry {
         registerBlockRender(ModBlocks.tool_rack);
         registerBlockRender(ModBlocks.fishing_rod_holder);
         registerBlockRender(ModBlocks.wood_shelf);
+        registerBlockRender(ModBlocks.bookshelf);
     }
 
     //Registry

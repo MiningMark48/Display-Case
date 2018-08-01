@@ -1,0 +1,10 @@
+{
+  "variants": {
+  	"facing=up": { "model": "displaycase:book_shelf" },
+    "facing=down": { "model": "displaycase:book_shelf" },
+    "facing=north": { "model": "displaycase:book_shelf" },
+    "facing=south": { "model": "displaycase:book_shelf", "y": 180 },
+    "facing=west":  { "model": "displaycase:book_shelf", "y": 270 },
+    "facing=east":  { "model": "displaycase:book_shelf", "y": 90 }
+  }
+}

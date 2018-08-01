@@ -13,6 +13,7 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityToolRack.class, "tool_rack");
         GameRegistry.registerTileEntity(TileEntityFishingRodHolder.class, "fishing_rod_holder");
         GameRegistry.registerTileEntity(TileEntityWoodShelf.class, "wood_shelf");
+        GameRegistry.registerTileEntity(TileEntityBookShelf.class, "book_shelf");
     }
 
     public static void bindTileRenders() {
@@ -21,6 +22,7 @@ public class ModTileEntities {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityToolRack.class, new TESRToolRack());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFishingRodHolder.class, new TESRFishingRodHolder());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodShelf.class, new TESRWoodShelf());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBookShelf.class, new TESRBookShelf());
     }
 
 }
