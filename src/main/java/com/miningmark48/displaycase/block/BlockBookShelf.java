@@ -92,7 +92,7 @@ public class BlockBookShelf extends BlockDisplayCaseBase {
     //Custom Tooltip
     @Override
     public void addInformation(ItemStack par1ItemStack, @Nullable World world, List par3List, ITooltipFlag par4) {
-        par3List.add(TextFormatting.LIGHT_PURPLE + ModTranslate.toLocal("tooltip.block.bookshelf.line1"));
+        par3List.add(TextFormatting.LIGHT_PURPLE + ModTranslate.toLocal("tooltip.block.book_shelf.line1"));
         par3List.add(TextFormatting.YELLOW + ModTranslate.toLocal("gui.display_case.info.all.line1"));
     }
 
