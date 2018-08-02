@@ -3,10 +3,13 @@ package com.miningmark48.displaycase.block;
 import com.miningmark48.displaycase.block.base.BlockDisplayCaseBase;
 import com.miningmark48.displaycase.handler.GuiHandler;
 import com.miningmark48.displaycase.reference.Reference;
+import com.miningmark48.displaycase.tile.TileEntityArmorFrame;
 import com.miningmark48.displaycase.tile.TileEntityToolRack;
 import com.miningmark48.displaycase.tile.TileEntityWoodShelf;
+import com.miningmark48.mininglib.utility.ModLogger;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -35,10 +38,44 @@ public class BlockWoodShelf extends BlockDisplayCaseBase {
     private static AxisAlignedBB BOUNDING_BOX_WEST = new AxisAlignedBB(0.75D, 0.332D, 0.0625D, 1D, 0.53125D, 0.9375D);
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
+    public static final PropertyInteger STYLE = PropertyInteger.create("style", 0, 3);
 
     public BlockWoodShelf() {
         super();
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(STYLE, 0));
+    }
+
+    @Override
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        int style = 0;
+
+        EnumFacing facing = state.getValue(FACING);
+
+        switch (facing) {
+            default:
+            case NORTH:
+                if (isShelf(worldIn, pos.east(), facing)) style = 1;
+                if (isShelf(worldIn, pos.west(), facing)) style = 2;
+                if (isShelf(worldIn, pos.east(), facing) && isShelf(worldIn, pos.west(), facing)) style = 3;
+                    break;
+            case SOUTH:
+                if (isShelf(worldIn, pos.east(), facing)) style = 2;
+                if (isShelf(worldIn, pos.west(), facing)) style = 1;
+                if (isShelf(worldIn, pos.east(), facing) && isShelf(worldIn, pos.west(), facing)) style = 3;
+                break;
+            case EAST:
+                if (isShelf(worldIn, pos.north(), facing)) style = 2;
+                if (isShelf(worldIn, pos.south(), facing)) style = 1;
+                if (isShelf(worldIn, pos.north(), facing) && isShelf(worldIn, pos.south(), facing)) style = 3;
+                break;
+            case WEST:
+                if (isShelf(worldIn, pos.north(), facing)) style = 1;
+                if (isShelf(worldIn, pos.south(), facing)) style = 2;
+                if (isShelf(worldIn, pos.north(), facing) && isShelf(worldIn, pos.south(), facing)) style = 3;
+                break;
+        }
+
+        return state.withProperty(STYLE, style);
     }
 
     @Override
@@ -50,7 +87,7 @@ public class BlockWoodShelf extends BlockDisplayCaseBase {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, FACING);
+        return new BlockStateContainer(this, FACING, STYLE);
     }
 
     @Override
@@ -110,6 +147,10 @@ public class BlockWoodShelf extends BlockDisplayCaseBase {
             }
         }
         return false;
+    }
+
+    private static boolean isShelf(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+        return world.getBlockState(pos).getBlock() instanceof BlockWoodShelf && world.getBlockState(pos).getValue(FACING).equals(facing);
     }
 
 }
