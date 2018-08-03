@@ -39,6 +39,13 @@ public abstract class TESRDisplayCaseBase extends TileEntitySpecialRenderer<Tile
                     } else {
                         doItemBlockRender(index);
                     }
+
+                    if (getDoesFloat() || getDoesRotation()) {
+                        double rTime = Minecraft.getSystemTime() / (getEffectSpeed() * 100D);
+                        if (getDoesFloat()) GlStateManager.translate(0D, Math.sin(rTime % (2 * Math.PI)) * 0.065, 0D);
+                        if (getDoesRotation()) GlStateManager.rotate((float) (((rTime * 40D) % 360)), 0, 1, 0);
+                    }
+
                     Minecraft.getMinecraft().getRenderManager().doRenderEntity(entityItem, 0D, 0D, 0D, 0.0F, 0.0F, false);
 
                     GlStateManager.popMatrix();
@@ -63,6 +70,18 @@ public abstract class TESRDisplayCaseBase extends TileEntitySpecialRenderer<Tile
 
     public int getSlotAmount() {
         return 1;
+    }
+
+    public int getEffectSpeed() {
+        return 8;
+    }
+
+    public boolean getDoesRotation() {
+        return false;
+    }
+
+    public boolean getDoesFloat() {
+        return false;
     }
 
     private static int getDirection(EnumFacing facing) {
