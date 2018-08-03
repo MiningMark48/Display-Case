@@ -1,34 +1,30 @@
 package com.miningmark48.displaycase.client;
 
-import com.miningmark48.displaycase.container.ContainerDCSingleSlot;
+import com.miningmark48.displaycase.container.ContainerDC;
 import com.miningmark48.displaycase.container.slot.SlotType;
-import com.miningmark48.displaycase.reference.Reference;
 import com.miningmark48.displaycase.reference.TextureReference;
-import com.miningmark48.displaycase.tile.base.TileEntityDisplayCaseBase;
 import com.miningmark48.mininglib.utility.GuiUtil;
 import com.miningmark48.mininglib.utility.ModTranslate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.opengl.GL11;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-public class GuiDCSingleSlot extends GuiContainer {
+public class GuiDC extends GuiContainer {
 
     private IInventory playerInv;
     private EntityPlayer player;
     private IInventory te;
     private SlotType slotType;
 
-    public GuiDCSingleSlot(IInventory playerInv, IInventory te, EntityPlayer player, SlotType slotType) {
-        super(new ContainerDCSingleSlot(playerInv, te, slotType));
+    public GuiDC(IInventory playerInv, IInventory te, EntityPlayer player, SlotType slotType) {
+        super(new ContainerDC(playerInv, te, slotType));
 
         this.xSize = 176;
         this.ySize = 144;

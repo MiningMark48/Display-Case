@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Objects;
 
-public class ContainerDCSingleSlot extends Container {
+public class ContainerDC extends Container {
 
     private IInventory tileInv;
 
-    public ContainerDCSingleSlot(final IInventory playerInv, IInventory tileInv, SlotType slotType){
+    public ContainerDC(final IInventory playerInv, IInventory tileInv, SlotType slotType){
         this.tileInv = tileInv;
         tileInv.openInventory(null);
 

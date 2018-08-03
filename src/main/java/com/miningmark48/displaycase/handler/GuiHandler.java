@@ -1,7 +1,7 @@
 package com.miningmark48.displaycase.handler;
 
-import com.miningmark48.displaycase.client.GuiDCSingleSlot;
-import com.miningmark48.displaycase.container.ContainerDCSingleSlot;
+import com.miningmark48.displaycase.client.GuiDC;
+import com.miningmark48.displaycase.container.ContainerDC;
 import com.miningmark48.displaycase.container.slot.SlotType;
 import com.miningmark48.displaycase.tile.base.TileEntityDisplayCaseBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,19 +28,19 @@ public class GuiHandler implements IGuiHandler {
         assert te != null;
 
         if (ID == gui_id_dc){
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ALL);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ALL);
         } else if (ID == gui_id_dc_armor) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ARMOR);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ARMOR);
         } else if (ID == gui_id_dc_item) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ITEM);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.ITEM);
         } else if (ID == gui_id_dc_block) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.BLOCK);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.BLOCK);
         } else if (ID == gui_id_dc_tool) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.TOOL);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.TOOL);
         } else if (ID == gui_id_dc_weapon) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.WEAPON);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.WEAPON);
         } else if (ID == gui_id_dc_fishing_rod) {
-            return new ContainerDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.FISHING_ROD);
+            return new ContainerDC(player.inventory, (TileEntityDisplayCaseBase) te, SlotType.FISHING_ROD);
         }
 
         return null;
@@ -52,19 +52,19 @@ public class GuiHandler implements IGuiHandler {
         TileEntity te = world.getTileEntity(pos);
 
         if (ID == gui_id_dc){
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ALL);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ALL);
         } else if (ID == gui_id_dc_armor) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ARMOR);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ARMOR);
         } else if (ID == gui_id_dc_item) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ITEM);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.ITEM);
         } else if (ID == gui_id_dc_block) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.BLOCK);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.BLOCK);
         } else if (ID == gui_id_dc_tool) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.TOOL);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.TOOL);
         } else if (ID == gui_id_dc_weapon) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.WEAPON);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.WEAPON);
         } else if (ID == gui_id_dc_fishing_rod) {
-            return new GuiDCSingleSlot(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.FISHING_ROD);
+            return new GuiDC(player.inventory, (TileEntityDisplayCaseBase) te, player, SlotType.FISHING_ROD);
         }
 
         return null;
