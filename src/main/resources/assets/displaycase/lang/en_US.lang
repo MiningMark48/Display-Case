@@ -7,6 +7,7 @@ tile.tool_rack.name=Tool Rack
 tile.fishing_rod_holder.name=Fishing Rod Holder
 tile.wood_shelf.name=Shelf
 tile.book_shelf.name=Bookshelf
+tile.pedestal.name=Pedestal
 
 #Tooltips
 tooltip.info.fake_item.line1=You shouldn't have this item! Report to mod author.
@@ -15,6 +16,7 @@ tooltip.block.tool_rack.line1=Put your tools up for safe keeping.
 tooltip.block.fishing_rod_holder.line1=Line tangling prevention.
 tooltip.block.wood_shelf.line1=The simple way to show your item.
 tooltip.block.book_shelf.line1=Display your items with your books.
+tooltip.block.pedestal.line1=Show your items off on a fancy pedestal.
 
 #Gui
 gui.display_case.info.title=Info

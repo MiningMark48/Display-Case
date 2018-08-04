@@ -2,6 +2,7 @@ package com.miningmark48.displaycase.init;
 
 import com.miningmark48.displaycase.tile.*;
 import com.miningmark48.displaycase.tile.renderer.*;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -14,6 +15,7 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityFishingRodHolder.class, "fishing_rod_holder");
         GameRegistry.registerTileEntity(TileEntityWoodShelf.class, "wood_shelf");
         GameRegistry.registerTileEntity(TileEntityBookShelf.class, "book_shelf");
+        GameRegistry.registerTileEntity(TileEntityPedestal.class, "pedestal");
     }
 
     public static void bindTileRenders() {
@@ -23,6 +25,7 @@ public class ModTileEntities {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFishingRodHolder.class, new TESRFishingRodHolder());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodShelf.class, new TESRWoodShelf());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBookShelf.class, new TESRBookShelf());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPedestal.class, new TESRPedestal());
     }
 
 }
